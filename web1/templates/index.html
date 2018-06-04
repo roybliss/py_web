@@ -1,0 +1,23 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">      
+        <title>首页</title>
+    </head>
+    <body>
+        <h1 style="background-color:antiquewhite;color:black;">hello world!</h1>
+        <h1 style="background-color:antiquewhite;color:black;">
+            <form action="/cmdb/" method="POST">{% csrf_token %}
+                用户名：<input type="text" name="username"><br>
+                密码：<input type="text" name="password">
+                <input type="submit" value="提交">
+            </form>
+            <h1 style="background-color:antiquewhite;color:black;">
+                {{ data.user }}<br>
+                {{ data.pwd }}
+            </h1>
+        </h1>
+    </body>
+</html>

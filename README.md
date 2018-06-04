@@ -1,4 +1,4 @@
-#  python和Django学习仓库
+# python和Django学习仓库
 
 ## 学习足迹
 
