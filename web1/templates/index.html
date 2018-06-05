@@ -7,7 +7,7 @@
         <title>首页</title>
     </head>
     <body>
-        <h1 style="background-color:antiquewhite;color:black;">hello world!</h1>
+        <h1 style="background-color:antiquewhite;color:black;">首页</h1>
         <h1 style="background-color:antiquewhite;color:black;">
             <form action="/cmdb/" method="POST">{% csrf_token %}
                 用户名：<input type="text" name="username"><br>
@@ -15,8 +15,20 @@
                 <input type="submit" value="提交">
             </form>
             <h1 style="background-color:antiquewhite;color:black;">
-                {{ data.user }}<br>
-                {{ data.pwd }}
+                <table>
+                    <thead>
+                        <th>用户名</th>
+                        <th>密码</th>
+                    </thead>
+                    <tbody>
+                        {% for user in data %}
+                            <tr>
+                                <td>{{ user.user }}</td>
+                                <td>{{ user.pwd }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+            </table>
             </h1>
         </h1>
     </body>
