@@ -1,7 +1,7 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from cmdb import views
 
 urlpatterns = [
-   path('', views.index),
+   re_path(r'^$', views.index),
 ]
