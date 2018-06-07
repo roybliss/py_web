@@ -1,0 +1,16 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">      
+        <title></title>
+    </head>
+    <body>
+        <h1 style="background-color:antiquewhite;color:black;">{{ article.title }}</h1>
+        <br/>
+        <h3>{{ article.content }}</h3>
+        <br/><br/>
+        <a href="">修改文章</a>
+    </body>
+</html>
