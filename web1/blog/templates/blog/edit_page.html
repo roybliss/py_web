@@ -4,18 +4,30 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">      
-        <title>修改文章</title>
+        <title>添加文章</title>
     </head>
     <body>
-        <form action="{% url 'blog:add_action' %}" method="POST">{% csrf_token %}
+        <form action="{% url 'blog:edit_action' %}" method="POST">{% csrf_token %}
+            <input type="hidden" name="article_id" value="{{ article.id | default:'0' }}"/>         
+            {% if article %}
             <label>文章标题
-                    <input type="text" name="title">
+                    <input type="text" name="title" value="{{ article.title }}"/>
             </label>
             <br/>
             <label>文章内容
-                    <input type="text" name="content">
+                    <input type="text" name="content" value="{{ article.content }}"/>
             </label>
             <br/>
+            {% else %}
+            <label>文章标题
+                    <input type="text" name="title"/>
+            </label>
+            <br/>
+            <label>文章内容
+                    <input type="text" name="content"/>
+            </label>
+            <br/>
+            {% endif %}
             <input type="submit" value="提交">
         </form>
     </body>
